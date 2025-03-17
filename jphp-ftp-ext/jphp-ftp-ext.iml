@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jphp-runtime" level="project" />
     <orderEntry type="library" name="ftp4j-1.7.2" level="project" />
+    <orderEntry type="library" name="jphp-runtime" level="project" />
   </component>
 </module>
