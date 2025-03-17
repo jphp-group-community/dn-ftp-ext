@@ -66,3 +66,6 @@ $file->__toString(); //
 
 Пример использования:
 https://hub.develnext.org/project/SrtCjqnoXnjk
+
+Работает на:
+https://www.sauronsoftware.it/projects/ftp4j/manual.php
