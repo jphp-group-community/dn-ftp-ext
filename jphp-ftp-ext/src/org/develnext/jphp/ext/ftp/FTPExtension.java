@@ -11,29 +11,25 @@ import it.sauronsoftware.ftp4j.FTPListParseException;
 import php.runtime.env.CompileScope;
 import php.runtime.ext.support.Extension;
 
-public class FTPExtension extends Extension
-{
+public class FTPExtension extends Extension {
     public final static String NS = "php\\net\\ftp";
 
     @Override
-    public Status getStatus()
-    {
+    public Status getStatus() {
         return Status.EXPERIMENTAL;
-    }
-    
-    @Override
-    public String[] getPackageNames()
-    {
-        return new String[] {};
     }
 
     @Override
-    public void onRegister(CompileScope scope)
-    {
+    public String[] getPackageNames() {
+        return new String[]{};
+    }
+
+    @Override
+    public void onRegister(CompileScope scope) {
         registerClass(scope, BFTPClient.class);
-        
+
         registerWrapperClass(scope, FTPFile.class, FTPFileWrapper.class);
-        
+
         registerJavaException(scope, BFTPException.class, FTPException.class);
         registerJavaException(scope, BFTPDataTransferException.class, FTPDataTransferException.class);
         registerJavaException(scope, BFTPIllegalReplyException.class, FTPIllegalReplyException.class);

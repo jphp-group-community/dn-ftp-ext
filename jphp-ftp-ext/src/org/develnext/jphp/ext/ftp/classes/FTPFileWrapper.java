@@ -17,80 +17,94 @@ import php.runtime.reflection.ClassEntity;
 @Abstract
 @Namespace(FTPExtension.NS)
 @Name("FTPFile")
-public class FTPFileWrapper extends BaseWrapper<FTPFile>
-{
-	public FTPFileWrapper(Environment env, FTPFile wrappedObject)
-	{
-		super(env, wrappedObject);
-	}
-	public FTPFileWrapper(Environment env, ClassEntity clazz)
-	{
-		super(env, clazz);
-	}
-	
-	@Signature
-	public WrapTime getModifiedDate(Environment env)
-	{
-		return new WrapTime(env, getWrappedObject().getModifiedDate());
-	}
-	
-	@Signature
-	public void setModifiedDate(int timeStamp)
-	{
-		getWrappedObject().setModifiedDate(new Date(timeStamp));
-	}
-	
-	@Signature
-	public Memory getName()
-	{
-		return StringMemory.valueOf(getWrappedObject().getName());
-	}
-	
-	@Signature
-	public void setName(String name)
-	{
-		getWrappedObject().setName(name);
-	}
-	
-	@Signature
-	public Memory getType()
-	{
-		return LongMemory.valueOf(getWrappedObject().getType());
-	}
-	
-	@Signature
-	public void setType(int type)
-	{
-		getWrappedObject().setType(type);
-	}
-	
-	@Signature
-	public Memory getSize()
-	{
-		return LongMemory.valueOf(getWrappedObject().getSize());
-	}
-	
-	@Signature
-	public void setSize(long size)
-	{
-		getWrappedObject().setSize(size);
-	}
-	
-	@Signature
-	public Memory getLink()
-	{
-		return StringMemory.valueOf(getWrappedObject().getLink());
-	}
-	
-	@Signature
-	public void setLink(String link)
-	{
-		getWrappedObject().setLink(link);
-	}
-	
-	@Signature
-	public Memory __toString()
-	{
-		return StringMemory.valueOf(getWrappedObject().toString());
-	}
+public class FTPFileWrapper extends BaseWrapper<FTPFile> {
+
+    //
+    public FTPFileWrapper(Environment env, FTPFile wrappedObject) {
+        super(env, wrappedObject);
+    }
+
+    //
+    public FTPFileWrapper(Environment env, ClassEntity clazz) {
+        super(env, clazz);
+    }
+
+    //
+    @Signature
+    public WrapTime getModifiedDate(Environment env) {
+        return new WrapTime(env, getWrappedObject().getModifiedDate());
+    }
+
+    //
+    @Signature
+    public void setModifiedDate(int timeStamp) {
+        getWrappedObject().setModifiedDate(new Date(timeStamp));
+    }
+
+    //
+    @Signature
+    public Memory getName() {
+        return StringMemory.valueOf(getWrappedObject().getName());
+    }
+
+    //
+    @Signature
+    public Memory hasFile() {
+        return getWrappedObject().getType() == FTPFile.TYPE_FILE ? Memory.TRUE : Memory.FALSE;
+    }
+
+    //
+    @Signature
+    public Memory hasFolder() {
+        return getWrappedObject().getType() == FTPFile.TYPE_DIRECTORY ? Memory.TRUE : Memory.FALSE;
+    }
+
+    //
+    @Signature
+    public void setName(String name) {
+        getWrappedObject().setName(name);
+    }
+
+    //
+    @Signature
+    public Memory getType() {
+        return LongMemory.valueOf(getWrappedObject().getType());
+    }
+
+    //
+    @Signature
+    public void setType(int type) {
+        getWrappedObject().setType(type);
+    }
+
+    //
+    @Signature
+    public Memory getSize() {
+        return LongMemory.valueOf(getWrappedObject().getSize());
+    }
+
+    //
+    @Signature
+    public void setSize(long size) {
+        getWrappedObject().setSize(size);
+    }
+
+    //
+    @Signature
+    public Memory getLink() {
+        return StringMemory.valueOf(getWrappedObject().getLink());
+    }
+
+    //
+    @Signature
+    public void setLink(String link) {
+        getWrappedObject().setLink(link);
+    }
+
+    //
+    @Signature
+    public Memory __toString() {
+        return StringMemory.valueOf(getWrappedObject().toString());
+    }
+
 }
